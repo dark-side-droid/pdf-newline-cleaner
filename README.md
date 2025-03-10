@@ -13,7 +13,7 @@ To compile using `make` :
 gcc main.c -o pdfnc
 ```
 
-To install using apt :
+To install using `apt` :
 ```
 sudo apt install ./pdfnc-0.0.1-1.deb
 ```
