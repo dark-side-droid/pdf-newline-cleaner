@@ -23,8 +23,10 @@ To install using `apt` :
 sudo apt install ./pdfnc-0.0.1-1.deb
 ```
 
+To install using `wsl` for windows use the following guide to [setup wsl](https://learn.microsoft.com/en-us/windows/wsl/setup/environment).
+
 ### Usage
-Run the program and paste your text. Press `Enter`, followed by `CTRL + D` to start processing.
+Run the program and paste your text. Press `Enter`, followed by `CTRL + D` on Linux or `CTRL + Z` then `ENTER` on Windows to start processing.
 ```terminal
 $ pdfnc
 Paste your text, press enter followed by CTRL + D for the processing to begin
