@@ -11,7 +11,7 @@ When copying text from a PDF and pasting it into a text editor, the text often c
 **Note**: The paragraph detection may introduce unintended formatting changes. Always review the output for accuracy.
 
 ### Installation
-You can compile the program from source or install it using the provided .deb package.
+You can compile the program from source or install it using the provided `.deb` package.
 
 To compile using `gcc` : 
 ```

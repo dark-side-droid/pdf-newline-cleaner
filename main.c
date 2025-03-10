@@ -75,9 +75,7 @@ int copyarr(char *arrA, char *arrB, int length)
                 i++;
             }
             else
-            {
                 arrB[i] = arrA[i];
-            }
         }
         else
             arrB[i] = ' ';
