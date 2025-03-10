@@ -52,7 +52,7 @@ int main(void)
     }
 
     // Print the resuls to the user
-    printf("\nRESULTS: (%i/8192 characters)\n=================\n", i);
+    printf("\nRESULTS: (%i/%i characters)\n=================\n", i, MAXCHARS);
     printf("%s\n", newarr);
     
     // Exit succesfully
