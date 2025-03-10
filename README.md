@@ -1,12 +1,17 @@
-# pdf-newline-cleaner
-When trying to copy text from a PDF file and then paste it on a text editor, the text comes bundled with a bunch of extra newline characters that then need to be removed manually from the user. This program helps address this issue by removing all newline characters from the text.
+# PDF Newline Cleaner
+When copying text from a PDF and pasting it into a text editor, the text often contains unwanted newline characters that must be removed manually. This program automates the process by removing all newline characters from the text while preserving paragraph structure as accurately as possible.
 
-It asks for user input then saves it to a new array. Then it processes the array, looking for the newline character. If it finds it it replaces it with a space character.It tries to understand whether a paragraph exists by looking for newline characters following punctuation. 
-    
-Please note that this sometimes results in paragraphs that were not there in the original text. Check the results to correct any errors. It then saves the result to a new array and prints it to the user via terminal.
+## How It Works
+
+1. The program prompts the user to input text, which is stored in an array.
+2. It processes the array, identifying and replacing newline characters with spaces.
+3. It attempts to detect paragraph breaks by checking for newline characters following punctuation marks.
+4. The cleaned text is stored in a new array and displayed in the terminal.
+
+**Note**: The paragraph detection may introduce unintended formatting changes. Always review the output for accuracy.
 
 ### Installation
-Compile from source  or use the `.deb` file found in Releases.
+You can compile the program from source or install it using the provided .deb package.
 
 To compile using `gcc` : 
 ```
@@ -19,7 +24,7 @@ sudo apt install ./pdfnc-0.0.1-1.deb
 ```
 
 ### Usage
-Example of usage : 
+Run the program and paste your text. Press `Enter`, followed by `CTRL + D` to start processing.
 ```terminal
 $ pdfnc
 Paste your text, press enter followed by CTRL + D for the processing to begin
