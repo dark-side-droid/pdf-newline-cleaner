@@ -11,8 +11,9 @@ When copying text from a PDF and pasting it into a text editor, the text often c
 **Note**: The paragraph detection may introduce unintended formatting changes. Always review the output for accuracy.
 
 ### Installation
-You can compile the program from source or install it using the provided `.deb` package.
+If you are using Linux you can compile the program from source or install it using the provided `.deb` package. On windows you can install using `wsl`.
 
+#### Linux
 To compile using `gcc` : 
 ```
 gcc main.c -o pdfnc
@@ -23,7 +24,19 @@ To install using `apt` :
 sudo apt install ./pdfnc-0.0.1-1.deb
 ```
 
-To install using `wsl` for windows use the following guide to [setup wsl](https://learn.microsoft.com/en-us/windows/wsl/setup/environment).
+#### Windows:
+To install using `wsl` for windows use the following guide to [setup wsl](https://learn.microsoft.com/en-us/windows/wsl/setup/environment). Then download the `deb` file using `wget`:
+```
+wget https://github.com/dark-side-droid/pdf-newline-cleaner/releases/download/v0.0.1-1/pdfnc_0.0.1-1_amd64.deb
+```
+Install :
+```
+sudo apt install ./pdfnc_0.0.1-1_amd64.deb
+```
+Remove downloaded file.
+```
+rm pdfnc_0.0.1-1_amd64.deb
+```
 
 ### Usage
 Run the program and paste your text. Press `Enter`, followed by `CTRL + D` on Linux or `CTRL + Z` then `ENTER` on Windows to start processing.
