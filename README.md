@@ -10,6 +10,16 @@ Please note that this sometimes results in paragraphs that were not there in the
 ### Installation
 Compile from source  or use the `.deb` file found in Releases.
 
+To compile using `make` : 
+```
+gcc main.c -o pdfnc
+```
+
+To install using apt :
+```
+sudo apt install ./pdfnc-0.0.1-1.deb
+```
+
 ### Usage
 Example of usage : 
 ```terminal
