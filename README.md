@@ -1,5 +1,5 @@
 # pdf-newline-cleaner
-When trying to copy text from a PDF file and then paste it on a text editor, the text comes bundled with a bunch of extra newline characters that then need to be removed manually from the user. This program helps address this issue by removing all the newline characters from text.
+When trying to copy text from a PDF file and then paste it on a text editor, the text comes bundled with a bunch of extra newline characters that then need to be removed manually from the user. This program helps address this issue by removing all newline characters from the text.
 
 It asks for user input then saves it to a new array. Then it processes the array, looking for the newline character. If it finds it it replaces it with a space character.It tries to understand whether a paragraph exists by looking for newline characters following punctuation. 
     
@@ -8,7 +8,7 @@ Please note that this sometimes results in paragraphs that were not there in the
 ### Installation
 Compile from source  or use the `.deb` file found in Releases.
 
-To compile using `make` : 
+To compile using `gcc` : 
 ```
 gcc main.c -o pdfnc
 ```
