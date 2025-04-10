@@ -1,9 +1,3 @@
-#include <stdio.h>
-
-#define MAXCHARS 8192
-
-int copyarr(char *arrA, char *arrB, int length);
-
 /*
     PDF Newline Cleaner version 0.0.1-1
 
@@ -20,6 +14,12 @@ int copyarr(char *arrA, char *arrB, int length);
 
     It then saves the result to a new array and prints it to the user via terminal.
 */
+
+#include <stdio.h>
+
+#define MAXCHARS 8192
+
+int copyarr(char *arrA, char *arrB, int length);
 
 int main(void)
 {
@@ -59,7 +59,9 @@ int main(void)
     return 0;
 }
 
+// Copies A into B after following puctuation assertions
 int copyarr(char *arrA, char *arrB, int length)
+// assumes arrA is not an empty array
 {
     int i = 0;
     while (i < length)
