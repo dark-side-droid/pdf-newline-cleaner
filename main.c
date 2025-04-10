@@ -59,8 +59,8 @@ int main(void)
     return 0;
 }
 
-// Copies A into B after following puctuation assertions
 int copyarr(char *arrA, char *arrB, int length)
+// Copies A into B after following puctuation assertions
 // assumes arrA is not an empty array
 {
     int i = 0;
