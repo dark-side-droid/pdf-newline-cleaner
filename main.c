@@ -1,9 +1,15 @@
+#include <gtk/gtk.h>
+#include <string.h>
+#include <stdio.h>
+
 /*
-    PDF Newline Cleaner version 0.0.1-1
+    PDF Newline Cleaner version 0.0.2-1
 
-    This program asks for user input then saves it to a new array.
+    This program is better run using a hotkey
 
-    Then it processes the array, looking for the newline character. If it finds it
+    The program runs and gets latest string on the users clipboard.
+
+    Then it processes that string looking for the newline character. If it finds it
     it replaces it with a space character. 
     
     It tries to understand whether a paragraph exists by looking for
@@ -12,56 +18,45 @@
     Please note that this sometimes results in paragraphs
     that were not there in the original text. Check the results to correct any errors.
 
-    It then saves the result to a new array and prints it to the user via terminal.
+    It then saves the result to a new string and sets it as the latest thing on the clipboard.
 */
-
-#include <stdio.h>
 
 #define MAXCHARS 8192
 
 int copyarr(char *arrA, char *arrB, int length);
 
-int main(void)
-{
-    // Initialize the array
-    char arr[MAXCHARS];
-    for (int i = 0; i < MAXCHARS; i++)
-        arr[i] = 0;
+int main(int argc, char **argv) {
+    gtk_init(&argc, &argv);
 
-    printf("Paste your text, press enter followed by CTRL + D for the processing to begin\n==================\n");
+    GtkClipboard *clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
 
-    // Get user input
-    int i = 0;
-    char c;
-    while((c = getchar()) != EOF)
-    {
-        arr[i] = c;
-        i++;
-    }
+    // Get current clipboard, find its length
+    gchar *current_text = gtk_clipboard_wait_for_text(clipboard);
+    int len = strlen(current_text);
 
-    // Initialize second arr, copy and process it
-    char newarr[i];
-    for (int j = 0; j < i; j++)
-        newarr[j] = 0;
-    
-    int result = copyarr(arr, newarr, i);
-    if (result != 0)
-    {
-        printf("Something went wrong\n");
-        return 1;
-    }
+    // create a new array, reset it, and pass both to copyarr
+    char edited_text[len];
+    for(int i = 0; i < len; i++)
+        edited_text[i] = 0;
 
-    // Print the resuls to the user
-    printf("\nRESULTS: (%i/%i characters)\n=================\n", i, MAXCHARS);
-    printf("%s\n", newarr);
-    
-    // Exit succesfully
+    copyarr(current_text, edited_text, len + 1); // requires + 1
+
+    printf("%s\n", edited_text);
+
+    // Set clipboard
+    gtk_clipboard_set_text(clipboard, edited_text, -1);
+
+    system("notify-send -i edit-paste-symbolic 'Clipboard Updated' 'PDF Formatting cleared by pdf-newline-cleaner'");
+
+    // Run a short main loop to let GTK serve clipboard
+    g_timeout_add_seconds(1, (GSourceFunc)gtk_main_quit, NULL);
+
+    gtk_main();
+
     return 0;
 }
 
 int copyarr(char *arrA, char *arrB, int length)
-// Copies A into B after following puctuation assertions
-// assumes arrA is not an empty array
 {
     int i = 0;
     while (i < length)
