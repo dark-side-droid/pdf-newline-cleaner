@@ -12,15 +12,12 @@ When copying text from a PDF and pasting it into a text editor, the text often c
 **Note**: The paragraph detection may introduce unintended formatting changes. Always review the output for accuracy.
 
 ### Installation
-If you are using Linux you can compile the program from source or install it using the provided `.deb` package. On windows you can install using `wsl`. Using a hotkey with this program is highly recommended. Add a hotkey after installation. The default installation path is in 
+If you are using Linux you can compile the program from source or install it using the provided `.deb` package. On windows you can install using `wsl`. Using a hotkey with this program is highly recommended. Add a hotkey after installation. The default installation path is in:
 ```
 /usr/bin/pdfnc
 ```
-
-#### Linux
 To compile using `gcc` : 
 ```
-gcc main.c -o pdfnc
 gcc main.c -o pdfnc $(pkg-config --cflags --libs gtk+-3.0)
 ```
 
@@ -28,19 +25,14 @@ To install using `apt` and the deb file:
 ```
 sudo apt install ./pdfnc-0.0.2-1.deb
 ```
+remove the downloaded file 
+```
+rm ./pdfnc-0.0.2-1.deb
+```
 
-#### Windows:
-To install using `wsl` for windows use the following guide to [setup wsl](https://learn.microsoft.com/en-us/windows/wsl/setup/environment). Then download the `deb` file using `wget`:
+### Uninstall
 ```
-wget https://github.com/dark-side-droid/pdf-newline-cleaner/releases/download/v0.0.1-1/pdfnc_0.0.1-1_amd64.deb
-```
-Install :
-```
-sudo apt install ./pdfnc_0.0.2-1_amd64.deb
-```
-Remove downloaded file.
-```
-rm pdfnc_0.0.2-1_amd64.deb
+sudo apt remove pdfnc
 ```
 
 ### Usage
