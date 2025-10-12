@@ -38,3 +38,5 @@ sudo apt remove pdfnc
 ### Usage
 
 Copy some formatted text from a pdf. Run the program using your assigned hotkey. Paste the cleaned text.
+
+There is a character limit of `8192` characters of text to process. If for whatever reason you need more you need to compile the program from source after having changed the `MAXCHARS` definition to whatever you want.
